@@ -1,0 +1,21 @@
+public class Solution 
+{
+    public int SearchInsert(int[] nums, int target) 
+    {
+        int i = 0;
+        while (i < nums.Length)
+        {
+            if (nums[i] == target)
+                return i;
+            
+            if (nums[i] > target)
+                return i;
+            i++;
+        }
+
+        return i;
+    }
+}
+
+//Runtime 64ms Beats 81.51% of users with C#
+//Memory 42.00 MB Beats 66.21% of users with C#

@@ -1,0 +1,15 @@
+public class Solution 
+{
+         public int RemoveDuplicates(int[] nums)
+        {
+            var distinct = nums.Distinct().ToArray();
+            int count = distinct.Length;
+            for (int i = 0; i < count; i++)
+                nums[i] = distinct[i];
+            
+            return count;
+        }
+}
+
+//Runtime 118ms Beats 70.80% of users with C#
+//Memory 50.42 MB Beats 10.70% of users with C#

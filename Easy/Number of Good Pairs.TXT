@@ -1,0 +1,31 @@
+public class Solution 
+{
+    public int NumIdenticalPairs(int[] nums) 
+    {
+        short pairs=0;
+        int i = 0, j = 1;
+        A:
+            if(nums[i]==nums[j])
+            {
+                pairs++;
+                j++;
+            }
+            else
+            {
+                j++;
+            }
+            if(j==nums.Length)
+            {
+                i++;
+                j = i + 1;
+            }
+
+            if (i == nums.Length-1)
+                return pairs;
+        goto A;
+    }
+}
+
+
+//Runtime 84ms Beats 5.34% of users with C#
+//Memory 38.00 MB Beats 100.00% of users with C#

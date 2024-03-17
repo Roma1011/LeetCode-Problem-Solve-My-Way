@@ -1,0 +1,15 @@
+public class Solution 
+{
+     public int RemoveElement(int[] nums, int val)
+    {
+        var different=nums.Where(x => x != val).ToArray();
+            var length = different.Length;
+            for (int i = 0; i < different.Length; i++)
+                nums[i] = different[i];
+                
+            return different.Length;
+    }
+}
+
+//Runtime 95 ms Beats 78.82% of users with C#
+//Memory 46.06 MB Beats 10.14% of users with C#

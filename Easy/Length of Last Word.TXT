@@ -1,0 +1,26 @@
+public class Solution 
+{
+    public int LengthOfLastWord(string s) 
+    { 
+        int length = 0;
+        bool foundNonSpace = false;
+
+        for (int i = s.Length - 1; i >= 0; i--)
+        {
+            if (s[i] != ' ')
+            {
+                foundNonSpace = true;
+                length++;
+            }
+            else if (foundNonSpace)
+            {
+                break;
+            }
+        }
+
+        return length;
+    }
+}
+
+//Runtime 42 ms Beats 75.22% of users with C#
+//Memory 38.27MB Beats 59.52% of users with C#

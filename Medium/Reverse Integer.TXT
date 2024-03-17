@@ -1,0 +1,35 @@
+public class Solution 
+{
+    public int Reverse(int x)
+    {
+        if (x == Int32.MinValue)
+            return 0;
+            
+        bool isNegative = false;
+        if (x < 0)
+        {
+            x = Math.Abs(x);
+            isNegative = true;
+        }
+
+        int rev = 0;
+        int digit=0;
+        while (x != 0)
+        {
+            digit = x % 10;
+            if (rev > Int32.MaxValue / 10 || (rev == Int32.MaxValue / 10 && digit > 7))
+                return 0;
+
+            rev = rev * 10 + digit;
+            x /= 10;
+        }
+
+        if (isNegative)
+            rev = -rev;
+
+        return rev;
+    }
+}
+
+//Runtime 17ms Beats 91.04% of users with C#
+//Memory 26.60 MB Beats 97.68% of users with C#

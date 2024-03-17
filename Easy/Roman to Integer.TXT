@@ -1,0 +1,51 @@
+public class Solution
+{
+    public int RomanToInt(string s)
+    {
+        int sum = 0;
+        int result = 0;
+        for (int indexI = 0; indexI < s.Length; indexI++)
+        {
+            if (s.Length != indexI+1)
+            {
+                result = RomanNumerals(default, s[indexI]+s[indexI+1].ToString());
+            }
+            if (result!=0)
+            {
+                sum += result;
+                indexI++;
+                result = 0;
+                continue;
+            }
+            sum+=RomanNumerals(s[indexI]);
+        }
+        return sum;
+    }
+    public int RomanNumerals(char standardRomanNums=default,string complexRomanNums=default)
+    {
+        switch(standardRomanNums)
+        {
+            case 'I' : return 1;
+            case 'V' : return 5;
+            case 'X' : return 10;
+            case 'L' : return 50;
+            case 'C' : return 100;
+            case 'D' : return 500;
+            case 'M' : return 1000;
+        };
+        switch (complexRomanNums)
+        {
+            case "IV" : return 4;
+            case "IX" : return 9;
+            case "XL" : return 40;
+            case "XC" : return 90;
+            case "CD" : return 400;
+            case "CM" : return 900;
+        }
+        return 0;
+    }
+}
+
+
+//Runtime 56ms Beats 48.31% of users with C#
+//Memory 48.71 MB Beats 69.47% of users with C#

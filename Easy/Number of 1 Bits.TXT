@@ -1,0 +1,10 @@
+public class Solution 
+{
+    public int HammingWeight(uint n) 
+    {
+        return Convert.ToString(n,2).Select(x=>x).Where(x=>x=='1').Count();
+    }
+}
+
+//Runtime 25ms Beats 15.92% of users with C#
+//Memory 24.95 MB Beats 20.17% of users with C#

@@ -1,0 +1,23 @@
+public class Solution {
+    public bool IsPalindrome(int x)
+    {
+        string givenX = x.ToString();
+        bool isPalindrome=checkPalindrome2(givenX);
+        return isPalindrome;
+    }
+    
+    public bool checkPalindrome2(string num1)
+    {
+        if (num1.Length == 1)
+            return true;
+        for (int indexI = 0; indexI < num1.Length/2;indexI++)
+        {
+            if (!num1[indexI].Equals(num1[num1.Length-indexI-1]))
+                return false;
+        }
+        return true;
+    }
+}
+
+//Runtime 31ms Beats 99.06% of users with C#
+//Memory 30.13 MB Beats 100.00% of users with C#
