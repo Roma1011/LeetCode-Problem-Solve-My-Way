@@ -3,11 +3,11 @@ public class Solution
      public int RemoveElement(int[] nums, int val)
     {
         var different=nums.Where(x => x != val).ToArray();
-            var length = different.Length;
-            for (int i = 0; i < different.Length; i++)
+        var length = different.Length;
+            for (int i = 0; i < length; i++)
                 nums[i] = different[i];
                 
-            return different.Length;
+            return length;
     }
 }
 
