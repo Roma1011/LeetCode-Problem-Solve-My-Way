@@ -19,5 +19,37 @@ public class Solution {
     }
 }
 
-//Runtime 31ms Beats 99.06% of users with C#
-//Memory 30.13 MB Beats 100.00% of users with C#
+// Runtime 31ms Beats 99.06% of users with C#
+// Memory 30.13 MB Beats 100.00% of users with C#
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+public class Solution
+{
+    public bool IsPalindrome(int x)
+    {
+        bool result=IsPalindromic<char>(x.ToString().AsEnumerable());
+        return result;
+    }
+
+    public static bool IsPalindromic<T>(IEnumerable<T> inputSequence) where T : IComparable
+    {
+        Stack<T> buffer = new Stack<T>();
+        foreach (T element in inputSequence)
+        {
+            buffer.Push(element);
+        }
+
+        for (int i = 0; i < inputSequence.Count(); i++)
+        {
+            if (buffer.Pop().CompareTo(inputSequence.ElementAt(i)) == 0)
+                continue;
+            else
+                return false;
+        }
+        return true;
+    }
+}
+
+// Runtime 103 ms Beats 5.09%
+// Memory 46.34 MB Beats 5.96%
